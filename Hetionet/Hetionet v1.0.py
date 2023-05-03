@@ -298,6 +298,15 @@ for row in drug_class_df.itertuples():
     source_id = 'Pharmacologic Class', row.class_id
     target_id = 'Compound', row.drugbank_id
     graph.add_edge(source_id, target_id, 'includes', 'both', data)
+
+## checking the error     
+edge = graph.get_edge(source_id, target_id)
+if edge is not None:
+    print("Current edge:", edge)
+else:
+    print("Edge not found")
+
+
 ### Assertion Error: edge already exist 
 
 """ 
